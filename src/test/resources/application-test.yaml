@@ -3,6 +3,16 @@ spring:
   init:
     mode: always
   datasource:
-    url: ${db-test.url}
-    username: ${db-test.username}
-    password: ${db-test.password}
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;NON_KEYWORDS=VALUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  liquibase:
+    changeLog: "classpath:changelog-test.sql"
+
+logging:
+  level:
+    org.springframework.boot.autoconfigure.liquibase: DEBUG
