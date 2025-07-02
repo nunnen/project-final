@@ -3,6 +3,6 @@ spring:
   init:
     mode: always
   datasource:
-    url: jdbc:postgresql://localhost:5433/jira-test
-    username: jira
-    password: JiraRush
+    url: ${db-test.url}
+    username: ${db-test.username}
+    password: ${db-test.password}
